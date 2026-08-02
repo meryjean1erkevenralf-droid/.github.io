@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MERY Jean 1er Keven-Ralf — Développeur web & maintenance informatique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F2E22;
+    --bg-panel:#153A2A;
+    --bg-panel-2:#1B4634;
+    --gold:#E8B84B;
+    --gold-soft:#D9C78C;
+    --ivory:#F4F1E8;
+    --muted:#9FB8AC;
+    --line:rgba(244,241,232,0.14);
+    --radius:4px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ivory);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.65;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px;}
+  .serif{font-family:'Fraunces',serif;}
+
+  /* ===== Masthead ===== */
+  .masthead{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .seal{
+    width:44px;height:44px;border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:600;font-size:15px;
+    color:var(--gold);
+    flex:none;
+  }
+  .masthead-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* ===== Hero ===== */
+  .hero{padding:64px 0 80px;border-bottom:1px solid var(--line);}
+  .hero-grid{display:grid;grid-template-columns:1.3fr 0.9fr;gap:64px;align-items:center;}
+  @media (max-width:840px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center;}
+    .hero-photo-wrap{order:-1;}
+    .hero-intro{margin-left:auto;margin-right:auto;}
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+  h1.serif{
+    font-weight:600;
+    font-size:clamp(38px,6vw,64px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+    margin-bottom:8px;
+  }
+  h1.serif em{
+    font-style:italic;font-weight:500;color:var(--gold-soft);
+  }
+  .role{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;color:var(--muted);
+    margin-bottom:26px;
+  }
+  .intro-text{
+    color:var(--muted);
+    font-size:16px;
+    max-width:440px;
+    margin-bottom:34px;
+  }
+  @media (max-width:840px){.intro-text{margin-left:auto;margin-right:auto;}}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;}
+  @media (max-width:840px){.cta-row{justify-content:center;}}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;letter-spacing:0.03em;
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 22px;border-radius:2px;
+    text-decoration:none;
+    transition:opacity .15s ease, transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--gold);color:#12200F;font-weight:600;}
+  .btn-primary:hover{opacity:0.9;}
+  .btn-ghost{color:var(--ivory);border:1px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--gold);}
+
+  .hero-photo-wrap{position:relative;display:flex;justify-content:center;}
+  .hero-photo{
+    width:min(340px,80vw);
+    aspect-ratio:1/1;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid var(--gold);
+    box-shadow:0 0 0 10px rgba(232,184,75,0.06), 0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-badge{
+    position:absolute;
+    bottom:6px; right:calc(50% - 170px);
+    background:var(--gold);
+    color:#12200F;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;
+    padding:8px 14px;border-radius:2px;
+    box-shadow:0 10px 24px -8px rgba(0,0,0,0.5);
+  }
+  @media (max-width:840px){.hero-badge{right:calc(50% - min(170px,40vw));}}
+
+  /* ===== Section shared ===== */
+  section{padding:72px 0;border-bottom:1px solid var(--line);}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:44px;flex-wrap:wrap;gap:12px;
+  }
+  h2.serif{font-size:clamp(26px,3.6vw,36px);font-weight:600;}
+  .section-index{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--muted);letter-spacing:0.1em;
+  }
+
+  /* ===== Services as directory/index ===== */
+  .directory{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;}
+  @media (max-width:700px){.directory{grid-template-columns:1fr;}}
+  .directory-item{
+    padding:26px 0;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .directory-item:nth-child(1),.directory-item:nth-child(2){border-top:1px solid var(--line);}
+  .directory-item .mark{color:var(--gold);font-size:14px;}
+  .directory-item h3.serif{font-size:20px;font-weight:600;}
+  .directory-item p{color:var(--muted);font-size:14.5px;max-width:38ch;}
+
+  /* ===== Contact - business card mockup ===== */
+  .contact-layout{display:grid;grid-template-columns:0.95fr 1fr;gap:56px;align-items:center;}
+  @media (max-width:780px){.contact-layout{grid-template-columns:1fr;}}
+
+  .card-mock{
+    background:linear-gradient(155deg, var(--bg-panel-2), var(--bg-panel));
+    border:1px solid var(--gold);
+    border-radius:10px;
+    padding:30px 28px;
+    width:100%;
+    max-width:380px;
+    transform:rotate(-3deg);
+    box-shadow:0 30px 60px -24px rgba(0,0,0,0.7);
+    position:relative;
+  }
+  .card-mock::after{
+    content:"";
+    position:absolute;inset:8px;
+    border:1px solid rgba(232,184,75,0.35);
+    border-radius:6px;
+    pointer-events:none;
+  }
+  .card-mock .card-name{font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin-bottom:4px;}
+  .card-mock .card-role{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold-soft);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:22px;}
+  .card-mock .card-line{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);
+    display:flex;gap:10px;margin-bottom:8px;
+  }
+  .card-mock .card-line span:first-child{color:var(--gold);width:16px;}
+
+  .contact-links{display:flex;flex-direction:column;gap:14px;}
+  .contact-link{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 0;border-top:1px solid var(--line);
+    text-decoration:none;color:var(--ivory);
+  }
+  .contact-link:last-child{border-bottom:1px solid var(--line);}
+  .contact-link .label{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .contact-link .value.serif{font-size:19px;font-weight:500;}
+  .contact-link .go{color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:13px;}
+
+  footer{padding:36px 0;text-align:center;}
+  footer p{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);letter-spacing:0.04em;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="masthead">
+    <div class="seal">MJKR4</div>
+    <div class="masthead-tag">Gabon · Web & Informatique</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-intro">
+        <div class="eyebrow">Profil professionnel</div>
+        <h1 class="serif">MERY Jean 1er<br><em>Keven-Ralf</em></h1>
+        <p class="role">DÉVELOPPEUR WEB & MAINTENANCE INFORMATIQUE</p>
+        <p class="intro-text">J'accompagne particuliers et entreprises du Gabon dans la création de leur présence en ligne et l'entretien de leur matériel informatique — du site web à la carte de visite.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/24165641646" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+          <a class="btn btn-ghost" href="mailto:meryjean1er@gmail.com">Envoyer un email</a>
+          <a class="btn btn-ghost" href="https://meryjean1erkevenralf-droid.github.io/meryportfolio.github.io/" target="_blank" rel="noopener">Voir mon portfolio</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo">
+          <img src="images/Copilot_20260803_004007.png" alt="Portrait de MERY Jean 1er Keven-Ralf">
+        </div>
+        <span class="hero-badge">Disponible</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="serif">Ce que je propose</h2>
+      <span class="section-index">Quatre domaines d'intervention</span>
+    </div>
+    <div class="directory">
+      <div class="directory-item">
+        <span class="mark">✦</span>
+        <h3 class="serif">Création de sites web</h3>
+        <p>Conception et mise en ligne de votre site — vitrine, portfolio ou boutique — adapté à votre activité.</p>
+      </div>
+      <div class="directory-item">
+        <span class="mark">✦</span>
+        <h3 class="serif">Maintenance informatique</h3>
+        <p>Installation et mise à jour d'antivirus, mise à jour du système d'exploitation, nettoyage et optimisation.</p>
+      </div>
+      <div class="directory-item">
+        <span class="mark">✦</span>
+        <h3 class="serif">Cartes de visite</h3>
+        <p>Création de cartes de visite personnalisées, prêtes à imprimer, pour votre activité.</p>
+      </div>
+      <div class="directory-item">
+        <span class="mark">✦</span>
+        <h3 class="serif">Affiches</h3>
+        <p>Conception d'affiches sur mesure pour vos événements, promotions ou communications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="serif">Me contacter</h2>
+      <span class="section-index">Réponse rapide</span>
+    </div>
+    <div class="contact-layout">
+      <div class="card-mock">
+        <div class="card-name serif">MERY Jean 1er Keven-Ralf</div>
+        <div class="card-role">Développeur web & IT</div>
+        <div class="card-line"><span>T</span> +241 65 64 16 46</div>
+        <div class="card-line"><span>@</span> meryjean1er@gmail.com</div>
+        <div class="card-line"><span>—</span> Gabon</div>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="tel:+24165641646">
+          <span>
+            <span class="label">Téléphone</span><br>
+            <span class="value serif">+241 65 64 16 46</span>
+          </span>
+          <span class="go">Appeler →</span>
+        </a>
+        <a class="contact-link" href="https://wa.me/24165641646" target="_blank" rel="noopener">
+          <span>
+            <span class="label">WhatsApp</span><br>
+            <span class="value serif">+241 65 64 16 46</span>
+          </span>
+          <span class="go">Discuter →</span>
+        </a>
+        <a class="contact-link" href="mailto:meryjean1er@gmail.com">
+          <span>
+            <span class="label">Email</span><br>
+            <span class="value serif">meryjean1er@gmail.com</span>
+          </span>
+          <span class="go">Écrire →</span>
+        </a>
+        <a class="contact-link" href="https://meryjean1erkevenralf-droid.github.io/meryportfolio.github.io/" target="_blank" rel="noopener">
+          <span>
+            <span class="label">Portfolio</span><br>
+            <span class="value serif">Voir mes réalisations</span>
+          </span>
+          <span class="go">Ouvrir →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>MERY Jean 1er Keven-Ralf — Développeur web & maintenance informatique — Gabon</p>
+  </div>
+</footer>
+
+</body>
+</html>
